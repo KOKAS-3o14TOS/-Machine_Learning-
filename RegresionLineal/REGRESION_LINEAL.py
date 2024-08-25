@@ -1,4 +1,3 @@
-
 #----LIBRERIA----
 import numpy as np 
 import matplotlib.pyplot as plt 
@@ -90,20 +89,38 @@ ERROR TEST {self.error_test[-1]}
     	# Calculamos el MAE dividiendo el error acumulado entre el número de muestras
 		mean_absolute_error = total_error / len(Samples)
 		return mean_absolute_error
-	
+	#----R**2----
+	def R_squared(self, Theta, Samples, Label):
+        # Predicciones del modelo
+		predictions = self.hypothesis(Theta, Samples)
+        
+        # Media de las etiquetas reales
+		mean_label = np.mean(Label)
+    
+        # Suma de los cuadrados totales (SST)
+		total_sum_of_squares = np.sum((Label - mean_label) ** 2)
+        
+        # Suma de los cuadrados residuales (SSR)
+		residual_sum_of_squares = np.sum((Label - predictions) ** 2)
+        # Cálculo de R²
+		R2 = 1 - (residual_sum_of_squares / total_sum_of_squares)
+		return R2
 	
 	#----NORMALIZACIÓN LABELS----
 	def Scaling_labels(self, labels):
 		# ESTANDARIZACIÓN DESVIACIÓN ESTANDAR
-		
+		'''
 		medias = labels.mean(axis=0)
 		desviaciones = labels.std(axis=0)
 		labels = (labels- medias) / desviaciones
+		'''
 		
 		# NORMALIZACIÓN (0-1) MIN-MAX
+		
 		label_min = np.min(labels)
 		label_max = np.max(labels)
 		return (labels - label_min) / (label_max - label_min)
+		
 
 
 	#----NORMALIZACIÓN SAMPLES----
@@ -111,11 +128,12 @@ ERROR TEST {self.error_test[-1]}
 
 		# ESTANDARIZACIÓN DESVIACIÓN ESTANDAR
 		# Escalado estándar (0 media, 1 desviación estándar)
+		'''
 		medias = samples[:, 1:].mean(axis=0)
 		desviaciones = samples[:, 1:].std(axis=0)
 		samples[:, 1:] = (samples[:, 1:] - medias) / desviaciones
+		'''
 		
-
 		# NORMALIZACIÓN (0-1) MIN-MAX
 		mins = samples[:, 1:].min(axis=0)
 		maxs = samples[:, 1:].max(axis=0)
@@ -123,7 +141,8 @@ ERROR TEST {self.error_test[-1]}
 		dif[dif == 0] = 1  # Evitar división por cero
 		samples[:, 1:] = (samples[:, 1:] - mins) / dif
 		return samples
-
+		
+		
 		
 	
 	
@@ -161,8 +180,8 @@ ERROR TEST {self.error_test[-1]}
 		self.Samples = self.Scaling(self.Samples)
 		self.Label = self.Scaling_labels(self.Label)
 		# ESCALAMIENTO DE LABELS Y SAMPLES
-		#self.Samples_test = self.Scaling(self.Samples_test)
-		# self.Label_test = self.Scaling_labels(self.Label_test)
+		self.Samples_test = self.Scaling(self.Samples_test)
+		self.Label_test = self.Scaling_labels(self.Label_test)
 		
 		# CÁLCULA Y ACTUALIZACIÓN DE THETA 
 		while self.epochs < limit:
@@ -201,11 +220,12 @@ if __name__ == "__main__":
 	LR = 0.01  # Tasa de aprendizaje
 
 
-
 	
 	#----CREACIÓN DE MODELO REGRESIÓN LINEAL----
 	regresion = RegresionLineal(Theta, Label, Samples, LR, Bias, Label_test, Samples_test)
 	regresion.LivingML(10000,False)  # Entrenar por 100 épocas LivingML(Epoch, Mostrar hyp vs label)
 	regresion.RESULTS('Train Theta Model') # Muestra resultados 
 	regresion.plot_error()  # Graficar los errores
+	
+
 	
