@@ -1,4 +1,2 @@
-# ❚█══MACHINE LEARNING ══█❚ 
-                                                                                                                                                                         
-                                                                                                                                                                        
-(╬▔皿▔)╯    →  🥤- PROJECT - ML - BASE - TEC -🥤
+# ❚█══MACHINE LEARNING══█❚ 
+       ¯\_(ツ)_/¯                                                                                                                                                              🥤- PROJECT - ML - BASE - TEC -🥤
