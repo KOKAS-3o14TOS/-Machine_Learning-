@@ -1,3 +1,4 @@
+
 #----LIBRERIA----
 import numpy as np 
 import matplotlib.pyplot as plt 
@@ -174,8 +175,7 @@ ERROR TEST {self.error_test[-1]}
 	#----MODELO DE REGRESIÓN LINEAL----
 	def LivingML(self, limit,M):
 		# MUESTRA LAS THETA ÓPTIMAS
-		self.Betas_Opt(self.Samples,self.Label,'Train Betas Opt') # Muestra theta óptimizadas, el módelo debería alcanzar estos parámetro
-
+		
 		# ESCALAMIENTO DE LABELS Y SAMPLES
 		self.Samples = self.Scaling(self.Samples)
 		self.Label = self.Scaling_labels(self.Label)
@@ -183,6 +183,7 @@ ERROR TEST {self.error_test[-1]}
 		self.Samples_test = self.Scaling(self.Samples_test)
 		self.Label_test = self.Scaling_labels(self.Label_test)
 		
+		self.Betas_Opt(self.Samples,self.Label,'Train Betas Opt:') 
 		# CÁLCULA Y ACTUALIZACIÓN DE THETA 
 		while self.epochs < limit:
 			old =  np.copy(self.Theta)
@@ -227,5 +228,6 @@ if __name__ == "__main__":
 	regresion.RESULTS('Train Theta Model') # Muestra resultados 
 	regresion.plot_error()  # Graficar los errores
 	
+
 
 	
