@@ -159,7 +159,7 @@ if __name__ == "__main__":
     X_test = df_test.drop(columns=['RETAIL SALES','SUPPLIER','YEAR','MONTH','ITEM DESCRIPTION'])
     y_test = df_test['RETAIL SALES']
 
-    joblib.dump((X_train, y_train, X_val, y_val, X_test, y_test), 'dataset.pkl')
+    joblib.dump((X_train, y_train, X_val, y_val, X_test, y_test), 'dataset1_split.pkl')
     print(f"Tamaño del conjunto de entrenamiento: {X_train.shape[0]}")
     print(f"Tamaño del conjunto de validación: {X_val.shape[0]}")
     print(f"Tamaño del conjunto de prueba: {X_test.shape[0]}")
