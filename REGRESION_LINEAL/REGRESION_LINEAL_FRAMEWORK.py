@@ -1,16 +1,18 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.preprocessing import StandardScaler
-import joblib
-import time
+# Importar librerías necesarias
+import numpy as np  # Para operaciones numéricas y manejo de arrays
+import matplotlib.pyplot as plt  # Para la visualización de gráficos
+from sklearn.linear_model import LinearRegression  # Modelo de regresión lineal de scikit-learn
+from sklearn.metrics import mean_squared_error, r2_score  # Métricas de evaluación
+from sklearn.preprocessing import StandardScaler  # Para la normalización de datos
+import joblib  # Para cargar y guardar modelos y datos
+import time  # Para medir el tiempo de entrenamiento
+
+
 # Cargar datos
 X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('K:\\😈😈😈\\AI\\CIENCIA_DATOS\\PRACTICA\\PROJECT\\DATASET\\DATASET\\RETAIL_SALES\\dataset.pkl')
 
 # Asegúrate de que los datos sean arrays de NumPy
 X_train = np.array(X_train)
-
 y_train = np.array(y_train)
 X_val = np.array(X_val)
 y_val = np.array(y_val)
@@ -54,8 +56,12 @@ print("Validation R^2:", val_r2)
 print("Test R^2:", test_r2)
 print('----Time----')
 print(f"Seg: {training_time:.2f}")
+print('----Sesgo o Bias----')
+print("Train:", np.mean(y_train_pred-y_train))
+print("Validation:", np.mean(y_val_pred-y_val))
+print("Test:", np.mean(y_test_pred-y_test))
 
-
+# Gráfica MSE
 plt.tight_layout()
 metrics = ['MSE (Train)', 'MSE (Validation)', 'MSE (Test)']
 values = [train_mse, val_mse, test_mse]
@@ -68,6 +74,7 @@ plt.ylabel('Valor')
 plt.title('Métricas de MSE')
 plt.show()
 
+# Gráfica R^2
 plt.tight_layout()
 plt.figure(figsize=(8, 5))
 metrics2 = [ 'R^2 (Train)', 'R^2 (Validation)', 'R^2 (Test)']
@@ -81,7 +88,22 @@ plt.ylabel('Valor')
 plt.title('Métricas de  R^2')
 plt.show()
 
+# Gráfica Y_train vs Y_train_pred
+plt.figure(figsize=(10, 6)) 
+plt.plot(y_val, label='Valores Reales (y_train)', color='blue', linestyle='-', marker='o', markersize=4)  
+plt.plot(y_val_pred, label='Predicciones (y_train_pred)', color='green', linestyle='--', marker='x', markersize=4) 
+plt.title('Comparación de Valores Reales vs Predicciones TRAIN', fontsize=16, fontweight='bold')
+plt.xlabel('Índice de Datos', fontsize=12)
+plt.ylabel('Ventas al por Menor (Retail Sales)', fontsize=12)
+plt.legend(loc='best', fontsize=12)  # 'best' ajusta la leyenda en la mejor posición
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.show()
 
+
+
+
+# Gráfica Y_val vs Y_val_pred
 plt.figure(figsize=(10, 6)) 
 plt.plot(y_val, label='Valores Reales (y_val)', color='blue', linestyle='-', marker='o', markersize=4)  
 plt.plot(y_val_pred, label='Predicciones (y_val_pred)', color='green', linestyle='--', marker='x', markersize=4) 
@@ -94,6 +116,7 @@ plt.tight_layout()
 plt.show()
 
 
+# Gráfica Y_test vs Y_test_pred
 plt.figure(figsize=(10, 6)) 
 plt.plot(y_test, label='Valores Reales (y_test)', color='blue', linestyle='-', marker='o', markersize=4)  
 plt.plot(y_test_pred, label='Predicciones (y_test_pred)', color='green', linestyle='--', marker='x', markersize=4) 
