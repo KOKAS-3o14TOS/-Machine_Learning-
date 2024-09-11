@@ -24,8 +24,6 @@ El mercado minorista en México tiene un crecimiento proyectado del 33.3% entre 
 1. **Regresión Lineal:** Utiliza una variable dependiente (label) y una o más variables independientes (features) para predecir resultados. La ecuación general es:  
    `Y = X*m + B`
 
-2. **Regresión Logística:** Clasifica datos utilizando una función sigmoidal para transformar los valores entre 0 y 1, lo que indica la probabilidad de pertenecer a una clase. Se utiliza en problemas de clasificación binaria.  
-   `Y = 1 / (1 + e^(-xm+b))`
 
 ## Dataset
 
