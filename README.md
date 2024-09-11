@@ -60,17 +60,17 @@ El modelo elegido es la regresión lineal, ya que las variables son continuas. L
 ## Resultados
 
 1. **Modelo 1 (Regresión Lineal desde cero):**
-   - MSE de 306 en entrenamiento, 210 en validación, y 269 en prueba.
-   - Un poder predictivo del 48%, con indicios de sobreajuste en los datos de entrenamiento.
+   - MSE de 626 en entrenamiento, 670 en validación, y 564 en prueba.
+   - Un poder predictivo del 32%, con indicios de underfitting.
 
 2. **Modelo 2 (Framework con Scikit-learn):**
-   - MSE de 25 y un R² de 0.94, mostrando un poder predictivo del 94%.  
-   - Tiempo de entrenamiento: 0.02 segundos.
+   - MSE de 36 y un R² de 0.95, mostrando un poder predictivo del 95%.  
+   - Tiempo de entrenamiento: 0.07 segundos, con inicios que el modelo está fitting.
 
 3. **Modelo 3 (RandomForest):**
-   - MSE de 23 y un poder predictivo del 95%.
-   - Tiempo de entrenamiento: 66 minutos, con indicios de sobreajuste.
+   - MSE de 28 y un poder predictivo del 96%.
+   - Tiempo de entrenamiento: 7.5 hrs, con inicios que el modelo está fititng.
 
 ## Conclusiones
 
-      La implementación de modelos de machine learning puede ayudar a las tiendas minoristas a mejorar su rendimiento. Sin embargo, es esencial contar con datasets bien estructurados para obtener predicciones precisas. Aunque el primer modelo fue útil para entender el proceso, los modelos con frameworks ocomo Scikit-learn ofrecieron mejores resultados en menor tiempo. El modelo RandomForest mostró el mejor rendimiento, con un MSE más bajo y mayor precisión predictiva.
+La implementación de modelos de machine learning puede ayudar a las tiendas minoristas a mejorar su rendimiento. Sin embargo, es esencial contar con datasets bien estructurados para obtener predicciones precisas. Aunque el primer modelo fue útil para entender el proceso, los modelos con frameworks ocomo Scikit-learn ofrecieron mejores resultados en menor tiempo. El modelo RandomForest mostró el mejor rendimiento, con un MSE más bajo y mayor precisión predictiva.
