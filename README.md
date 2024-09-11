@@ -73,4 +73,4 @@ El modelo elegido es la regresión lineal, ya que las variables son continuas. L
 
 ## Conclusiones
 
-La implementación de modelos de machine learning puede ayudar a las tiendas minoristas a mejorar su rendimiento. Sin embargo, es esencial contar con datasets bien estructurados para obtener predicciones precisas. Aunque el primer modelo fue útil para entender el proceso, los frameworks optimizados como Scikit-learn ofrecieron mejores resultados en menor tiempo. El modelo RandomForest mostró el mejor rendimiento, con un MSE más bajo y mayor precisión predictiva.
+      La implementación de modelos de machine learning puede ayudar a las tiendas minoristas a mejorar su rendimiento. Sin embargo, es esencial contar con datasets bien estructurados para obtener predicciones precisas. Aunque el primer modelo fue útil para entender el proceso, los modelos con frameworks ocomo Scikit-learn ofrecieron mejores resultados en menor tiempo. El modelo RandomForest mostró el mejor rendimiento, con un MSE más bajo y mayor precisión predictiva.
