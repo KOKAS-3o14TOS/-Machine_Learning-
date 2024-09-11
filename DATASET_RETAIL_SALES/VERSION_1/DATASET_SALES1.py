@@ -145,45 +145,20 @@ if __name__ == "__main__":
     df_train = df[:train_size]
     df_val = df[train_size:train_size + validation_size]
     df_test = df[train_size + validation_size:]
+    
     # ENTRENAMIENTO 75%
     # Separar características y variable objetivo
     X_train = df_train.drop(columns=['RETAIL SALES','SUPPLIER','YEAR','MONTH','ITEM DESCRIPTION'])
     y_train = df_train['RETAIL SALES']
-    x = sm.add_constant(X_train)  # Añadir la constante
-    print(x)
-    y = y_train 
-    # Alinear los datos
-    x, y = x.align(y, join='inner', axis=0)
-    # Ajustar el modelo
-    model = sm.OLS(y, x).fit()
-    # Mostrar resumen del modelo
-    print(model.summary())
- 
 
     # VALIDACION 10% 
     X_val = df_val.drop(columns=['RETAIL SALES','SUPPLIER','YEAR','MONTH','ITEM DESCRIPTION'])
     y_val = df_val['RETAIL SALES']
-    x = sm.add_constant(X_val)  # Añadir la constante
-    print(x)
-    y = y_val
-    # Alinear los datos
-    x, y = x.align(y, join='inner', axis=0)
-    # Ajustar el modelo
-    model = sm.OLS(y, x).fit()
-    # Mostrar resumen del modelo
-    print(model.summary())
+
     # TEST 15%
     X_test = df_test.drop(columns=['RETAIL SALES','SUPPLIER','YEAR','MONTH','ITEM DESCRIPTION'])
     y_test = df_test['RETAIL SALES']
-    x = sm.add_constant(X_test)  # Añadir la constante
-    print(x)
-    y = y_test
-    # Alinear los datos
-    x, y = x.align(y, join='inner', axis=0)
-    # Ajustar el modelo
-    model = sm.OLS(y, x).fit()
-    # Mostrar resumen del modelo
-    print(model.summary())
+
     joblib.dump((X_train, y_train, X_val, y_val, X_test, y_test), 'dataset.pkl')
     print(f"Tamaño del conjunto de entrenamiento: {X_train.shape[0]}")
     print(f"Tamaño del conjunto de validación: {X_val.shape[0]}")
