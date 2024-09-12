@@ -9,7 +9,7 @@ import time  # Para medir el tiempo de entrenamiento
 
 
 # Cargar datos
-X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('K:\\😈😈😈\\AI\\CIENCIA_DATOS\\PRACTICA\\PROJECT\\DATASET\\DATASET\\RETAIL_SALES\\dataset.pkl')
+X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('dataset1_split.pkl')
 
 # Asegúrate de que los datos sean arrays de NumPy
 X_train = np.array(X_train)
