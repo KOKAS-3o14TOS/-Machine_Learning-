@@ -187,7 +187,7 @@ class LinearRegressionModel:
         plt.show()
 
 # Cargar datos y entrenar el modelo
-X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('K:\😈😈😈\AI\CIENCIA_DATOS\PRACTICA\PROJECT\DATASET\DATASET\RETAIL_SALES\dataset.pkl')
+X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('dataset1_split.pkl')
 
 # Instanciar el modelo con la tasa de aprendizaje y el número de épocas deseado
 model = LinearRegressionModel(learning_rate=0.5, max_epochs=1000)
