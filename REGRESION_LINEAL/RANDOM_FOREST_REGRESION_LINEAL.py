@@ -10,7 +10,7 @@ import time  # Para medir el tiempo transcurrido.
 
 
 # Cargar los datos del conjunto de entrenamiento, validación y prueba desde un archivo .pkl
-X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('K:\\😈😈😈\\AI\\CIENCIA_DATOS\\PRACTICA\\PROJECT\\DATASET\\DATASET\\RETAIL_SALES\\dataset.pkl')
+X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('dataset1_split.pkl')
 
 # Convertir los datos a arrays de NumPy, y asegurar que las características X tengan dos dimensiones
 X_train = np.array(X_train).reshape(-1, 1) if X_train.ndim == 1 else np.array(X_train)
